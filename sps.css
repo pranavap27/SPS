@@ -70,5 +70,44 @@ button:active {
 
   h1 {
     font-size: 30px;
+    ```css .scoreboard {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin: 25px auto;
+      flex-wrap: wrap;
+    }
+
+    .score-box {
+      min-width: 90px;
+      padding: 15px 20px;
+      border-radius: 12px;
+      text-align: center;
+      background: #ffffff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    }
+
+    .score-box h3 {
+      margin: 0 0 10px;
+      font-size: 16px;
+    }
+
+    .score-box p {
+      margin: 0;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .score-box.win h3 {
+      color: #16a34a;
+    }
+
+    .score-box.lose h3 {
+      color: #dc2626;
+    }
+
+    .score-box.draw h3 {
+      color: #d97706;
+    }
   }
 }

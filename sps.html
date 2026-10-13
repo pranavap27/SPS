@@ -1,13 +1,27 @@
+```html
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="sps.css" />
   </head>
-  <link rel="stylesheet" href="sps.css" />
+
   <body>
     <p>ROCK PAPER SCISSORS</p>
+
+    <script>
+      let wins = 0;
+      let losses = 0;
+      let draws = 0;
+
+      function updateScoreboard() {
+        document.getElementById("win-count").textContent = wins;
+        document.getElementById("lose-count").textContent = losses;
+        document.getElementById("draw-count").textContent = draws;
+      }
+    </script>
 
     <button
       onclick="
@@ -20,6 +34,7 @@
         } else if (randomNumber >= 2 / 3 && randomNumber < 1) {
           computerMove = 'Scissors';
         }
+
         let result = '';
         if (computerMove === 'Rock') {
           result = 'Tie';
@@ -28,11 +43,22 @@
         } else if (computerMove === 'Scissors') {
           result = 'You win';
         }
+
+        if (result === 'You win') {
+          wins++;
+        } else if (result === 'You lose') {
+          losses++;
+        } else {
+          draws++;
+        }
+        updateScoreboard();
+
         alert(`You picked Rock.Computer picked ${computerMove}. ${result}`);
       "
     >
       🪨 Rock
     </button>
+
     <button
       onclick="
         const randomNumber = Math.random();
@@ -53,11 +79,22 @@
         } else if (computerMove === 'Scissors') {
           result = 'You lose';
         }
+
+        if (result === 'You win') {
+          wins++;
+        } else if (result === 'You lose') {
+          losses++;
+        } else {
+          draws++;
+        }
+        updateScoreboard();
+
         alert(`You picked Paper.Computer picked ${computerMove}. ${result}`);
       "
     >
       📄 Paper
     </button>
+
     <button
       onclick="
         const randomNumber = Math.random();
@@ -78,12 +115,22 @@
         } else if (computerMove === 'Scissors') {
           result = 'Tie';
         }
+
+        if (result === 'You win') {
+          wins++;
+        } else if (result === 'You lose') {
+          losses++;
+        } else {
+          draws++;
+        }
+        updateScoreboard();
+
         alert(`You picked Scissors.Computer picked ${computerMove}. ${result}`);
       "
     >
-      ✂️Scissors
+      ✂️ Scissors
     </button>
-    ```html
+
     <div class="scoreboard">
       <div class="score-box win">
         <h3>Wins</h3>
@@ -100,6 +147,6 @@
         <p id="draw-count">0</p>
       </div>
     </div>
-    ```
   </body>
 </html>
+```
